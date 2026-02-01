@@ -46,22 +46,23 @@ const BookTable = () => {
     try {
       // EmailJS configuration
       const templateParams = {
-        to_email: 'clayandcuisinecafe@gmail.com',
-        from_name: formData.fullName,
-        phone: formData.phone,
-        email: formData.email || 'Not provided',
-        date: new Date(formData.date).toLocaleDateString(),
-        time: formData.time,
-        guests: formData.guests,
-        special_requests: formData.specialRequests || 'None'
+        cafe_name: 'Clay & Cuisine Cafe',
+        customer_name: formData.fullName,
+        customer_email: formData.email || 'Not provided',
+        customer_phone: formData.phone,
+        booking_date: new Date(formData.date).toLocaleDateString(),
+        booking_time: formData.time,
+        guest_count: formData.guests,
+        message: formData.specialRequests || 'None',
+        year: new Date().getFullYear()
       };
 
       // Send email using EmailJS
       await emailjs.send(
-        'service_booking', // You'll need to create this service
-        'template_booking', // You'll need to create this template
+        'service_3s9pf37',
+        'template_cr28u9e',
         templateParams,
-        'your_public_key' // You'll need to get this from EmailJS
+        'WYyQAjiwk6lLp_2Q2'
       );
 
       // Store confirmed booking data
