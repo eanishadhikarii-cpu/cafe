@@ -25,9 +25,6 @@ const About = () => {
             </div>
           </div>
           <div className="about-bottom">
-            <p>
-              Defined by a refined plum-green and white palette, our interiors reflect simplicity and sophistication, creating an atmosphere ideal for relaxation, creativity, and meaningful moments.
-            </p>
             <p className="about-tagline">
               <strong>Clay and Cuisine Cafe — where art, taste, and tranquility come together.</strong>
             </p>

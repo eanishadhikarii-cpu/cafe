@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaCoffee } from 'react-icons/fa';
+import logoImage from '../assets/images/logo.jpeg';
 import '../styles/navbar.css';
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo" onClick={() => scrollToSection('home')}>
-            <FaCoffee className="logo-icon" />
+            <img src={logoImage} alt="Clay & Cuisine Cafe" className="logo-icon" />
             Clay & Cuisine Cafe
           </div>
           

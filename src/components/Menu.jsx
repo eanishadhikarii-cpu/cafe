@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import menuData from '../data/menu.json';
 import '../styles/menu.css';
 
 const Menu = () => {
-  const [showFullMenu, setShowFullMenu] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [showAll, setShowAll] = useState(false);
   const [activeType, setActiveType] = useState('all');
   const [isVisible, setIsVisible] = useState(false);
 
@@ -24,130 +22,40 @@ const Menu = () => {
     { name: "Chicken Curry", price: "380", type: "non-veg", category: "Main Course" },
     { name: "Virgin Mojito", price: "290", type: "veg", category: "Mocktails" },
     { name: "Paneer Chilly", price: "350", type: "veg", category: "Appetizers" },
-    { name: "Biryani", price: "310 / 390", type: "Veg / Chicken", category: "Main Course" }
+    { name: "Biryani", price: "310 / 390", type: "Veg / Chicken", category: "Main Course" },
+    { name: "Iced Americano", price: "120 / 150", type: "veg", category: "Coffee" },
+    { name: "Chicken Lollipop", price: "400", type: "non-veg", category: "Appetizers" },
+    { name: "Strawberry Milkshake", price: "220", type: "veg", category: "Shakes" },
+    { name: "Mutton Taas", price: "480", type: "non-veg", category: "Main Course" },
+    { name: "French Fries", price: "190", type: "veg", category: "Appetizers" },
+    { name: "Chicken Sandwich", price: "350", type: "non-veg", category: "Sandwich" }
   ];
+
+  const getFilteredItems = () => {
+    if (activeType === 'all') return featuredItems;
+    
+    return featuredItems.filter(item => {
+      if (activeType === 'veg') {
+        return item.type === 'veg' || item.type.includes('Veg');
+      }
+      if (activeType === 'non-veg') {
+        return item.type === 'non-veg' || item.type.includes('Chicken');
+      }
+      return true;
+    });
+  };
+
+  const getDisplayItems = () => {
+    const filteredItems = getFilteredItems();
+    // Always return all items, CSS will handle hiding
+    return filteredItems;
+  };
 
   const getVegIcon = (type) => {
     if (type === 'veg') return '●';
     if (type === 'non-veg') return '●';
     return '';
   };
-
-  const getFilteredCategories = () => {
-    if (activeCategory === 'all') return menuData.categories;
-    return menuData.categories.filter(category => category.id === activeCategory);
-  };
-
-  const getFilteredItems = (items) => {
-    if (activeType === 'all') return items;
-    return items.filter(item => {
-      if (activeType === 'veg') {
-        return item.type === 'veg' || item.type.includes('Veg');
-      }
-      if (activeType === 'non-veg') {
-        return item.type === 'non-veg' || item.type.includes('Chicken') || item.type.includes('Non-Veg') || item.type.includes('Fry') || item.type.includes('Boil');
-      }
-      if (activeType === 'drinks') {
-        return activeCategory === 'coffee' || activeCategory === 'mocktails';
-      }
-      return true;
-    });
-  };
-
-  if (showFullMenu) {
-    return (
-      <section id="menu" className={`section menu luxury-menu ${isVisible ? 'visible' : ''}`}>
-        <div className="container">
-          <div className="menu-header">
-            <h2 className="menu-title">Our Menu</h2>
-            <p className="menu-subtitle">A curated selection of thoughtfully prepared cuisine</p>
-          </div>
-          
-          <button className="luxury-back-btn" onClick={() => setShowFullMenu(false)}>
-            ← Featured Selection
-          </button>
-          
-          <div className="luxury-filters">
-            <div className="category-tabs">
-              <button 
-                className={`luxury-tab ${activeCategory === 'all' ? 'active' : ''}`}
-                onClick={() => setActiveCategory('all')}
-              >
-                All
-              </button>
-              {menuData.categories.map(category => (
-                <button 
-                  key={category.id}
-                  className={`luxury-tab ${activeCategory === category.id ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-            
-            <div className="type-pills">
-              {['all', 'veg', 'non-veg', 'drinks'].map(type => (
-                <button 
-                  key={type}
-                  className={`type-pill ${activeType === type ? 'active' : ''}`}
-                  onClick={() => setActiveType(type)}
-                >
-                  {type === 'all' ? 'All' : type === 'non-veg' ? 'Non-Veg' : type.charAt(0).toUpperCase() + type.slice(1)}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          <div className="luxury-menu-content">
-            {getFilteredCategories().map(category => {
-              const hasVisibleItems = category.subcategories.some(subcategory => 
-                getFilteredItems(subcategory.items).length > 0
-              );
-              
-              if (!hasVisibleItems) return null;
-              
-              return (
-                <div key={category.id} className="luxury-category">
-                  <h3 className="luxury-category-title">{category.name}</h3>
-                  
-                  {category.subcategories.map((subcategory, subIndex) => {
-                    const filteredItems = getFilteredItems(subcategory.items);
-                    if (filteredItems.length === 0) return null;
-                    
-                    return (
-                      <div key={subIndex} className="luxury-subcategory">
-                        <h4 className="luxury-subcategory-title">{subcategory.name}</h4>
-                        <div className="luxury-items-grid">
-                          {filteredItems.map((item, itemIndex) => (
-                            <div key={itemIndex} className="luxury-menu-item">
-                              <div className="item-row">
-                                <div className="item-left">
-                                  <span className={`veg-indicator ${item.type === 'veg' ? 'veg' : item.type === 'non-veg' ? 'non-veg' : 'mixed'}`}>
-                                    {getVegIcon(item.type)}
-                                  </span>
-                                  <span className="item-name">{item.name}</span>
-                                </div>
-                                <div className="item-divider"></div>
-                                <div className="item-price">Rs.{item.price}</div>
-                              </div>
-                              {item.type !== 'veg' && item.type !== 'non-veg' && (
-                                <div className="item-type">{item.type}</div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section id="menu" className={`section menu luxury-menu ${isVisible ? 'visible' : ''}`}>
@@ -157,10 +65,25 @@ const Menu = () => {
           <p className="menu-subtitle">A curated selection of thoughtfully prepared cuisine</p>
         </div>
         
+        <div className="luxury-filters">
+          <div className="type-pills">
+            {['all', 'veg', 'non-veg'].map(type => (
+              <button 
+                key={type}
+                className={`type-pill ${activeType === type ? 'active' : ''}`}
+                onClick={() => setActiveType(type)}
+              >
+                {type === 'all' ? 'All' : type === 'non-veg' ? 'Non-Veg' : type.charAt(0).toUpperCase() + type.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+        
         <div className="featured-showcase">
-          <h3 className="featured-title">Featured Selection</h3>
-          <div className="luxury-featured-grid">
-            {featuredItems.map((item, index) => (
+          <h3 className="featured-title">{showAll ? 'Complete Menu' : 'Featured Selection'}</h3>
+          
+          <div className={`luxury-featured-grid ${showAll ? 'expanded' : 'preview'}`}>
+            {getDisplayItems().map((item, index) => (
               <div key={index} className="luxury-featured-item">
                 <div className="item-row">
                   <div className="item-left">
@@ -180,11 +103,19 @@ const Menu = () => {
             ))}
           </div>
           
-          <div className="luxury-cta">
-            <button className="luxury-btn" onClick={() => setShowFullMenu(true)}>
-              View Complete Menu
-            </button>
-          </div>
+          {getFilteredItems().length > 8 && (
+            <div className="menu-toggle-section">
+              <button className="menu-toggle-btn" onClick={() => setShowAll(!showAll)}>
+                {showAll ? 'Show Less' : 'View All Menu'}
+                <span className="btn-icon">{showAll ? '↑' : '↓'}</span>
+              </button>
+              {!showAll && (
+                <p className="items-count">
+                  Showing 8 of {getFilteredItems().length} items
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -43,20 +43,36 @@ const BookTable = () => {
     }
 
     try {
-      // For local development, simulate successful booking
-      // In production, this would call the actual API
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Store confirmed booking data
-      setConfirmedBooking({ ...formData });
-      
-      // Show confirmation UI
-      setShowConfirmation(true);
-      
-      console.log('Booking processed successfully');
-      
+      // Send booking data to serverless function
+      const response = await fetch('/api/send-booking-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          date: formData.date,
+          time: formData.time,
+          guests: formData.guests,
+          specialRequests: formData.specialRequests
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Store confirmed booking data
+        setConfirmedBooking({ ...formData });
+        
+        // Show confirmation UI
+        setShowConfirmation(true);
+        
+        console.log('Booking email sent successfully');
+      } else {
+        throw new Error(result.error || 'Failed to send booking');
+      }
     } catch (error) {
       console.error('Booking submission error:', error);
       alert('Sorry, there was an error processing your booking. Please try again or call us directly.');

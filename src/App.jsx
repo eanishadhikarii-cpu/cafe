@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Menu from './components/Menu';
+import PremiumMenu from './components/PremiumMenu';
 import Features from './components/Features';
 import Gallery from './components/Gallery';
 
@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Menu />
+      <PremiumMenu />
       <Features />
       <Gallery />
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter, FaYelp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa';
 import '../styles/footer.css';
 
 const Footer = () => {
@@ -19,24 +19,21 @@ const Footer = () => {
           <div className="footer-social">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <a href="#" aria-label="Facebook" className="social-link">
+              <a href="https://www.facebook.com/p/Clay-cuisine-cafe-61574879348219/" aria-label="Facebook" className="social-link">
                 <FaFacebook />
               </a>
-              <a href="#" aria-label="Instagram" className="social-link">
+              <a href="https://www.instagram.com/clay_and_cuisine_cafe_/?hl=en" aria-label="Instagram" className="social-link">
                 <FaInstagram />
               </a>
-              <a href="#" aria-label="Twitter" className="social-link">
-                <FaTwitter />
-              </a>
-              <a href="#" aria-label="Yelp" className="social-link">
-                <FaYelp />
+              <a href="https://www.tiktok.com/@c3____" aria-label="TikTok" className="social-link">
+                <FaTiktok />
               </a>
             </div>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; Clay & Cuisine Cafe. All rights reserved.</p>
+          <p>&copy; Clay & Cuisine Cafe. Since 2025.</p>
         </div>
       </div>
     </footer>
