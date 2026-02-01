@@ -43,7 +43,7 @@
 }
 
 .gallery-item:nth-child(2) img {
-  object-position: center 70%;
+  object-position: center 30%;
 }
 
 .gallery-item:nth-child(3) img {
