@@ -42,21 +42,17 @@ const BookTable = () => {
       return;
     }
 
-    try {
-      // For now, simulate successful booking since serverless function needs proper deployment
-      // In production, this would send to /api/send-booking-email
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Store confirmed booking data
-      setConfirmedBooking({ ...formData });
-      
-      // Show confirmation UI
-      setShowConfirmation(true);
-      
-      // Send email using mailto (opens user's email client)
-      const emailBody = `New Table Booking Request:
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Store confirmed booking data
+    setConfirmedBooking({ ...formData });
+    
+    // Show confirmation UI
+    setShowConfirmation(true);
+    
+    // Send email using mailto (opens user's email client)
+    const emailBody = `New Table Booking Request:
 
 Name: ${formData.fullName}
 Phone: ${formData.phone}
@@ -65,15 +61,11 @@ Date: ${new Date(formData.date).toLocaleDateString()}
 Time: ${formData.time}
 Guests: ${formData.guests}
 Special Requests: ${formData.specialRequests || 'None'}`;
-      
-      const mailtoLink = `mailto:clayandcuisinecafe@gmail.com?subject=New Table Booking - ${formData.fullName}&body=${encodeURIComponent(emailBody)}`;
-      window.open(mailtoLink, '_blank');
-      
-      console.log('Booking processed successfully');
-    } catch (error) {
-      console.error('Booking submission error:', error);
-      alert('Sorry, there was an error processing your booking. Please try again or call us directly.');
-    }
+    
+    const mailtoLink = `mailto:clayandcuisinecafe@gmail.com?subject=New Table Booking - ${formData.fullName}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink, '_blank');
+    
+    console.log('Booking processed successfully');
   };
 
   const handleBookAnother = () => {
