@@ -16,20 +16,7 @@ const Menu = () => {
     return () => observer.disconnect();
   }, []);
 
-  const featuredItems = [
-    { name: "Black Coffee", price: "90 / 130", type: "veg", category: "Coffee" },
-    { name: "Steam Momo", price: "160 / 200", type: "Veg / Chicken", category: "MOMO" },
-    { name: "Chicken Curry", price: "380", type: "non-veg", category: "Main Course" },
-    { name: "Virgin Mojito", price: "290", type: "veg", category: "Mocktails" },
-    { name: "Paneer Chilly", price: "350", type: "veg", category: "Appetizers" },
-    { name: "Biryani", price: "310 / 390", type: "Veg / Chicken", category: "Main Course" },
-    { name: "Iced Americano", price: "120 / 150", type: "veg", category: "Coffee" },
-    { name: "Chicken Lollipop", price: "400", type: "non-veg", category: "Appetizers" },
-    { name: "Strawberry Milkshake", price: "220", type: "veg", category: "Shakes" },
-    { name: "Mutton Taas", price: "480", type: "non-veg", category: "Main Course" },
-    { name: "French Fries", price: "190", type: "veg", category: "Appetizers" },
-    { name: "Chicken Sandwich", price: "350", type: "non-veg", category: "Sandwich" }
-  ];
+  const featuredItems = [];
 
   const getFilteredItems = () => {
     if (activeType === 'all') return featuredItems;

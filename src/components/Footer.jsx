@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; Clay & Cuisine Cafe. Since 2025.</p>
+          <p>&copy; Clay &amp; Cuisine Cafe. Since 2025.</p>
         </div>
       </div>
     </footer>

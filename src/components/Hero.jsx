@@ -14,7 +14,7 @@ const Hero = () => {
       </div>
       <div className="container">
         <div className="hero-content">
-          <h1 className="hero-title">Clay & Cuisine Cafe</h1>
+          <h1 className="hero-title">Clay &amp; Cuisine Cafe</h1>
           <p className="hero-tagline">
             Where artisan food meets creative clay art experiences
           </p>

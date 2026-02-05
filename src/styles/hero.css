@@ -50,6 +50,7 @@
   opacity: 0;
   transform: translateY(30px);
   animation: heroFadeIn 0.8s ease-out 0.2s forwards;
+  white-space: nowrap;
 }
 
 .hero-tagline {
@@ -65,6 +66,7 @@
   margin-right: auto;
   transform: translateY(30px);
   animation: heroFadeIn 0.8s ease-out 0.4s forwards;
+  color: #f0f0f0;
 }
 
 @keyframes heroFadeIn {

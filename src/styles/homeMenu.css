@@ -1,0 +1,326 @@
+/* Premium Home Menu Styles */
+.home-menu {
+  padding: 5rem 0;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6B8E6B, transparent);
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #6B8E6B;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6B8E6B, #4a6741);
+  border-radius: 2px;
+}
+
+.menu-subtitle {
+  font-size: 1.2rem;
+  color: #6B8E6B;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-top: 1.5rem;
+}
+
+.featured-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+}
+
+.menu-item-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(107, 142, 107, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.menu-item-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6B8E6B, transparent);
+  transition: left 0.6s ease;
+}
+
+.menu-item-card:hover::before {
+  left: 100%;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(107, 142, 107, 0.15);
+  border-color: #6B8E6B;
+}
+
+.menu-item-card:nth-child(1) { animation-delay: 0.1s; }
+.menu-item-card:nth-child(2) { animation-delay: 0.2s; }
+.menu-item-card:nth-child(3) { animation-delay: 0.3s; }
+.menu-item-card:nth-child(4) { animation-delay: 0.4s; }
+.menu-item-card:nth-child(5) { animation-delay: 0.5s; }
+.menu-item-card:nth-child(6) { animation-delay: 0.6s; }
+.menu-item-card:nth-child(7) { animation-delay: 0.7s; }
+.menu-item-card:nth-child(8) { animation-delay: 0.8s; }
+
+.menu-item-info {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.menu-item-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #6B8E6B;
+  margin: 0 0 0.6rem 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.menu-item-card:hover .menu-item-name {
+  color: #6B8E6B;
+}
+
+.menu-item-category {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #6B8E6B;
+  font-weight: 500;
+  background: rgba(107, 142, 107, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.menu-item-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #6B8E6B;
+  text-align: right;
+  position: relative;
+}
+
+.menu-item-price::before {
+  content: 'Rs. ';
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.menu-cta {
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6B8E6B 0%, #4a6741 100%);
+  color: white;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(107, 142, 107, 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(107, 142, 107, 0.4);
+  background: linear-gradient(135deg, #4a6741 0%, #6B8E6B 100%);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .home-menu {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .featured-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .menu-item-card {
+    padding: 1.5rem;
+  }
+  
+  .menu-item-name {
+    font-size: 1.2rem;
+  }
+  
+  .menu-item-price {
+    font-size: 1.3rem;
+  }
+  
+  .btn-primary {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+  
+  .menu-items-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .full-menu-section .menu-item-card {
+    padding: 0.8rem;
+  }
+  
+  .full-menu-section .menu-item-name {
+    font-size: 0.85rem;
+  }
+  
+  .full-menu-section .menu-item-price {
+    font-size: 0.95rem;
+  }
+}
+
+/* Full Menu Section Styles */
+.full-menu-section {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 2px solid #6B8E6B;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.full-menu-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #6B8E6B;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.menu-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #6B8E6B;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #6B8E6B;
+}
+
+.menu-subcategory {
+  margin-bottom: 2rem;
+}
+
+.subcategory-title {
+  font-size: 1.3rem;
+  color: #6B8E6B;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid #6B8E6B;
+}
+
+.menu-items-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.8rem;
+}
+
+.full-menu-section .menu-item-card {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.full-menu-section .menu-item-name {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.full-menu-section .menu-item-price {
+  font-size: 1.1rem;
+}

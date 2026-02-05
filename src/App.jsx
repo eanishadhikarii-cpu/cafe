@@ -2,10 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import PremiumMenu from './components/PremiumMenu';
 import Features from './components/Features';
+import HomeMenu from './components/HomeMenu';
 import Gallery from './components/Gallery';
-
 import SocialProof from './components/SocialProof';
 import BookTable from './components/BookTable';
 import Contact from './components/Contact';
@@ -18,8 +17,8 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <PremiumMenu />
       <Features />
+      <HomeMenu />
       <Gallery />
 
       <SocialProof />

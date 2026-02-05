@@ -35,13 +35,6 @@ const Features = () => {
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Clay Art at Clay and Cuisine Cafe</h2>
-          <p className="section-subtitle">A signature creative experience rooted in timeless craftsmanship</p>
-        </div>
-        
-        <div className="intro-highlights">
-          <div className="highlight-item">Hands-on clay art experience</div>
-          <div className="highlight-item">Mindful and immersive creative process</div>
-          <div className="highlight-item">Harmony between art and refined dining</div>
         </div>
 
         <div className="features-grid">
@@ -54,12 +47,6 @@ const Features = () => {
               <p className="feature-description">{feature.description}</p>
             </div>
           ))}
-        </div>
-
-        <div className="philosophy-statement">
-          <div className="philosophy-item">Slow down</div>
-          <div className="philosophy-item">Create with intention</div>
-          <div className="philosophy-item">Appreciate the harmony of art and cuisine</div>
         </div>
 
         <div className="features-cta">

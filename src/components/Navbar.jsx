@@ -29,7 +29,7 @@ const Navbar = () => {
           </div>
           
           <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-            {['home', 'about', 'menu', 'clay-art', 'gallery', 'reviews', 'book-table', 'contact'].map(section => (
+            {['home', 'about', 'clay-art', 'gallery', 'book-table', 'contact'].map(section => (
               <button key={section} onClick={() => scrollToSection(section)} className="nav-link">
                 {section.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
               </button>

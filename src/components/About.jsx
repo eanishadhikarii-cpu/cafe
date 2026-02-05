@@ -12,10 +12,7 @@ const About = () => {
             <div className="about-text">
               
               <p>
-                Clay and Cuisine Cafe is a thoughtfully curated space where fine cuisine and artistic expression coexist in quiet harmony. Designed with an appreciation for craftsmanship, comfort, and culture, the café offers an experience that extends beyond dining.
-              </p>
-              <p>
-                We serve carefully prepared food and beverages in a calm, refined environment, distinguished by the integration of clay art as a creative experience. Guests are invited to engage with the timeless craft of pottery while enjoying the warmth and elegance of the café setting.
+                Clay and Cuisine Cafe is a quiet and comfortable place where people can enjoy food and drinks in a relaxed environment. The cafe is known for its simple concept that combines eating with creativity, especially working with clay and art. People visit to spend time with friends, relax after a busy day, or just enjoy a peaceful moment with coffee. The atmosphere is calm and friendly, making it a nice place to sit, talk, and enjoy simple food without any rush.
               </p>
             </div>
             <div className="about-photo">
@@ -25,9 +22,6 @@ const About = () => {
             </div>
           </div>
           <div className="about-bottom">
-            <p className="about-tagline">
-              <strong>Clay and Cuisine Cafe — where art, taste, and tranquility come together.</strong>
-            </p>
           </div>
         </div>
       </div>

@@ -90,6 +90,7 @@
   opacity: 0.9;
   letter-spacing: -0.01em;
   line-height: 1.5;
+  text-align: center;
 }
 
 .footer-address {
@@ -174,6 +175,7 @@
     font-size: 0.85rem;
     line-height: 1.4;
     margin: 0.2rem 0;
+    text-align: center;
   }
   
   .footer-address {
