@@ -47,7 +47,9 @@ const Menu = () => {
 
   const getDisplayItems = () => {
     const filteredItems = getFilteredItems();
-    return showAll ? filteredItems : filteredItems.slice(0, 8);
+    const displayItems = showAll ? filteredItems : filteredItems.slice(0, 8);
+    console.log('Menu Debug:', { showAll, totalItems: filteredItems.length, displayItems: displayItems.length });
+    return displayItems;
   };
 
   const handleToggleMenu = () => {
