@@ -219,15 +219,15 @@
   }
   
   .menu-item-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
   
   .menu-item-name {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
   
   .menu-item-price {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   
   .btn-primary {
@@ -307,7 +307,7 @@
 
 .menu-items-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.8rem;
 }
 
@@ -317,10 +317,57 @@
 }
 
 .full-menu-section .menu-item-name {
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 0.3rem;
 }
 
 .full-menu-section .menu-item-price {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
+}
+
+
+.close-menu-btn {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 1.5rem !important;
+  z-index: 1000 !important;
+  box-shadow: 0 4px 12px rgba(107, 142, 107, 0.3) !important;
+}
+
+.close-menu-btn:hover {
+  box-shadow: 0 6px 16px rgba(107, 142, 107, 0.4) !important;
+}
+
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #6B8E6B;
+  background: white;
+  color: #6B8E6B;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+  background: #6B8E6B;
+  color: white;
+}
+
+.filter-btn.active {
+  background: #6B8E6B;
+  color: white;
 }

@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { featuredMenuItems, fullMenuData } from '../data/menuData';
+import { featuredMenuItems, fullMenuData, menuCategories } from '../data/menuData';
 import '../styles/homeMenu.css';
 
 const HomeMenu = () => {
   const [showFullMenu, setShowFullMenu] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const toggleFullMenu = () => {
     setShowFullMenu(!showFullMenu);
   };
 
+  const filteredMenuData = () => {
+    if (activeFilter === 'All') return fullMenuData;
+    return fullMenuData.filter(item => item.category === activeFilter);
+  };
+
   const groupedMenuData = () => {
     const grouped = {};
-    fullMenuData.forEach(item => {
+    filteredMenuData().forEach(item => {
       if (!grouped[item.category]) grouped[item.category] = {};
       if (!grouped[item.category][item.subcategory]) grouped[item.category][item.subcategory] = [];
       grouped[item.category][item.subcategory].push(item);
@@ -47,6 +53,17 @@ const HomeMenu = () => {
         {showFullMenu && (
           <div className="full-menu-section">
             <h3 className="full-menu-title">Complete Menu</h3>
+            <div className="menu-filters">
+              {menuCategories.map(category => (
+                <button
+                  key={category}
+                  className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
+                  onClick={() => setActiveFilter(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
             {Object.entries(groupedMenuData()).map(([category, subcategories]) => (
               <div key={category} className="menu-category">
                 <h4 className="category-title">{category}</h4>
