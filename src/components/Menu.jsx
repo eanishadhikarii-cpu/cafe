@@ -47,8 +47,15 @@ const Menu = () => {
 
   const getDisplayItems = () => {
     const filteredItems = getFilteredItems();
-    // Always return all items, CSS will handle hiding
-    return filteredItems;
+    return showAll ? filteredItems : filteredItems.slice(0, 8);
+  };
+
+  const handleToggleMenu = () => {
+    if (showAll) {
+      // Scroll to menu section when collapsing
+      document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setShowAll(!showAll);
   };
 
   const getVegIcon = (type) => {
@@ -84,7 +91,7 @@ const Menu = () => {
           
           <div className={`luxury-featured-grid ${showAll ? 'expanded' : 'preview'}`}>
             {getDisplayItems().map((item, index) => (
-              <div key={index} className="luxury-featured-item">
+              <div key={index} className={`luxury-featured-item ${showAll && index >= 8 ? 'fade-in' : ''}`}>
                 <div className="item-row">
                   <div className="item-left">
                     <span className={`veg-indicator ${item.type === 'veg' ? 'veg' : item.type === 'non-veg' ? 'non-veg' : 'mixed'}`}>
@@ -105,13 +112,17 @@ const Menu = () => {
           
           {getFilteredItems().length > 8 && (
             <div className="menu-toggle-section">
-              <button className="menu-toggle-btn" onClick={() => setShowAll(!showAll)}>
-                {showAll ? 'Show Less' : 'View All Menu'}
-                <span className="btn-icon">{showAll ? '↑' : '↓'}</span>
+              <button 
+                className="menu-toggle-btn" 
+                onClick={handleToggleMenu}
+                aria-label={showAll ? 'Show less menu items' : 'View all menu items'}
+              >
+                {showAll ? 'Show Less Menu' : 'View All Menu'}
+                <span className="btn-icon" aria-hidden="true">{showAll ? '↑' : '↓'}</span>
               </button>
               {!showAll && (
                 <p className="items-count">
-                  Showing 8 of {getFilteredItems().length} items
+                  Showing {Math.min(8, getFilteredItems().length)} of {getFilteredItems().length} items
                 </p>
               )}
             </div>

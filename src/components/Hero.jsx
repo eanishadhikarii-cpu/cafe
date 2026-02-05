@@ -22,8 +22,8 @@ const Hero = () => {
             <button className="btn" onClick={() => scrollToSection('menu')}>
               Explore Menu
             </button>
-            <button className="btn btn-outline" onClick={() => scrollToSection('clay-art')}>
-              Clay Art Experience
+            <button className="btn btn-outline" onClick={() => scrollToSection('book-table')}>
+              Book a Table
             </button>
           </div>
         </div>
